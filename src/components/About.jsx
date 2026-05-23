@@ -1,6 +1,7 @@
 import React from "react";
 import rochanPhoto from "../assets/rochan.png";
 import devanshPhoto from "../assets/devansh.jpg";
+import sayaliPhoto from "../assets/sayali.png";
 
 export default function About() {
   const developers = [
@@ -12,10 +13,11 @@ export default function About() {
       image: rochanPhoto,
     },
     {
-      name: "Syali Bambal",
-      email: "syali.bambal@example.com",
-      linkedin: "https://linkedin.com/in/syali-bambal",
+      name: "Sayali Bambal",
+      email: "sayalibambal218@gmail.com",
+      linkedin: "https://www.linkedin.com/in/sayali-bambal-1a6241302/",
       initials: "SB",
+      image: sayaliPhoto,
     },
     {
       name: "Devansh Paltewar",
@@ -24,6 +26,16 @@ export default function About() {
       initials: "DP",
       image: devanshPhoto,
     },
+  ];
+
+  const supporters = [
+    { name: "Dr. Father Stanli", initials: "FS" },
+    { name: "Poll", initials: "PL" },
+    { name: "Vijay Waddhahi", initials: "VW" },
+    { name: "Isha Suri", initials: "IS" },
+    { name: "Akshita", initials: "AK" },
+    { name: "Dr. Minakshi", initials: "DM" },
+    { name: "Shweta", initials: "SH" },
   ];
 
   return (
@@ -37,8 +49,9 @@ export default function About() {
         </p>
       </div>
 
+      {/* Developers */}
       <div className="about-subsection">
-        <h3 className="subsection-title">Developers &amp; Supporters</h3>
+        <h3 className="subsection-title">Developers</h3>
         <div className="subsection-underline"></div>
         
         <div className="developer-grid">
@@ -73,6 +86,42 @@ export default function About() {
                   LinkedIn Profile
                 </a>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Supporters */}
+      <div className="about-subsection">
+        <h3 className="subsection-title">Supporters</h3>
+        <div className="subsection-underline"></div>
+
+        <div className="developer-grid">
+          {supporters.map((sup, idx) => (
+            <div key={idx} className="developer-card supporter-card">
+              <div className="avatar-container">
+                {sup.image ? (
+                  <img
+                    src={sup.image}
+                    alt={sup.name}
+                    className="developer-avatar-img"
+                  />
+                ) : (
+                  <div className="avatar-placeholder">
+                    <span className="avatar-initials">{sup.initials}</span>
+                    <svg className="avatar-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+              <h4 className="developer-name">{sup.name}</h4>
+              {sup.email && (
+                <p className="developer-email">
+                  <strong>Email:</strong> <a href={`mailto:${sup.email}`}>{sup.email}</a>
+                </p>
+              )}
             </div>
           ))}
         </div>
