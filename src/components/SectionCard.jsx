@@ -18,6 +18,9 @@ export default function SectionCard({
       <div className="section-header">
         <div className="section-header-text">
           <h2 className="section-title">{section.title}</h2>
+          {section.description && (
+            <p className="section-description">{section.description}</p>
+          )}
           <span className="section-meta">
             Timeframe: <strong>{section.timeframe}</strong> &nbsp;|&nbsp;
             {section.itemCount} items &nbsp;|&nbsp; Max Score:{" "}

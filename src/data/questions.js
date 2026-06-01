@@ -13,7 +13,8 @@ export const SCALE_OPTIONS = [
 export const sections = [
   {
     id: "depression",
-    title: "Section 1: Depression & Emotional State",
+    title: "Section 1: Emotional Wellbeing  ",
+    description: "Depression & Emotional State: This section explores how you’ve been feeling emotionally and helps reflect on your overall mood.",
     timeframe: "Past 2 weeks",
     itemCount: 16,
     maxPerItem: 4,
@@ -40,7 +41,8 @@ export const sections = [
   },
   {
     id: "anxiety",
-    title: "Section 2: Anxiety & Physiological Arousal",
+    title: "Section 2: Calm & Resilience  ",
+    description: "Anxiety & Physiological Arousal: Here we look at how your body and mind respond to stress, and how you maintain calm in daily life.",
     timeframe: "Past 2 weeks",
     itemCount: 14,
     maxPerItem: 4,
@@ -65,7 +67,8 @@ export const sections = [
   },
   {
     id: "stress",
-    title: "Section 3: Perception of Stress",
+    title: "Section 3: Handling Life’s Pressures  ",
+    description: "Perceived Stress:  This section focuses on how you perceive and manage challenges in your environment.",
     timeframe: "Past 1 month",
     itemCount: 17,
     maxPerItem: 4,
@@ -93,8 +96,8 @@ export const sections = [
   },
   {
     id: "adhd",
-    title: "Section 4: Attention Span & ADHD Symptoms",
-    timeframe: "Past 6 months",
+    title: "Section 4: Focus & Concentration",
+    description: "Attention Span & ADHD Symptoms: Here we explore your ability to stay attentive, manage distractions, and harness your focus.",
     itemCount: 18,
     maxPerItem: 4,
     maxTotal: 72,

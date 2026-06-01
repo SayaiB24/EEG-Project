@@ -13,9 +13,9 @@ export default function Header({
 
       <div className="header-badge">IMHMA</div>
       <h1 className="header-title">
-        Integrated Mental Health Monitoring Assessment
+        Holistic Wellbeing Assesment
       </h1>
-      <p className="header-acronym">(IMHMA)</p>
+      <p className="header-acronym">(IMHMA : Integrated Mental Health Monitoring Assessment)</p>
 
       {/* Patient Info */}
       <div className="patient-info">
