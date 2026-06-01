@@ -172,15 +172,17 @@ function App() {
           </div>
 
           {/* Sections */}
-          {sections.map((sec) => (
-            <SectionCard
-              key={sec.id}
-              section={sec}
-              answers={answers}
-              onAnswer={handleAnswer}
-              missingQuestions={missingQuestions}
-            />
-          ))}
+          <div className="sections-grid">
+            {sections.map((sec) => (
+              <SectionCard
+                key={sec.id}
+                section={sec}
+                answers={answers}
+                onAnswer={handleAnswer}
+                missingQuestions={missingQuestions}
+              />
+            ))}
+          </div>
 
           {/* Action Buttons */}
           <div className="action-buttons">
