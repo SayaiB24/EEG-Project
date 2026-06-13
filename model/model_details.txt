@@ -1,0 +1,26 @@
+Part 1: The Architecture Teardown
+If you are writing a paper, presenting this to a clinic, or putting it in your portfolio, here is how you explain the architecture and the mathematical reasoning behind it.
+
+The Objective: Build a High-Dimensional, Low-Sample-Size (HDLSS) screening tool to classify a patient as Healthy or Having a Psychiatric Disorder using resting-state EEG data.
+
+1. Data Sanitization & Clinical Imputation
+The Problem: We had missing clinical metadata (Education, IQ). If we dropped those rows, we would lose precious patient data. If we imputed them with a global average, we would blur the lines between healthy controls and severe cognitive disorders.
+
+The Architecture: We used Grouped Median Imputation. The pipeline calculates the median IQ/Education strictly within the patient's specific disorder group to maintain clinical validity.
+
+2. Domain-Specific Feature Engineering
+The Problem: Neural networks and tree models struggle to dynamically divide raw features against each other.
+
+The Architecture: We injected neuro-clinical domain knowledge directly into the dataset by engineering Frontal Brainwave Ratios. We averaged the Absolute Power (AB) of the Theta, Beta, and Alpha bands across the frontal lobe (FP1, FP2, Fz, etc.) and calculated the Theta-to-Beta and Theta-to-Alpha ratios. High frontal Theta/Beta ratios are well-documented biomarkers for attentional deficits and cognitive strain.
+
+3. Strict Dimensionality Reduction (Blinded PCA)
+The Problem: The dataset contained over 1,026 Coherence (COH) features. Coherence measures network connectivity between brain regions. Because the brain is a single connected network, these 1,026 columns were highly correlated (collinear) and created a massive wall of mathematical noise.
+
+The Architecture: We used Principal Component Analysis (PCA) to crush those 1,026 features down into 15 dense, independent "Network Components."
+
+The Security Protocol: We applied a strict Anti-Leakage protocol. The PCA and the StandardScaler were fitted only on the 85% Training Set. The Test Set was completely blinded. This ensures our ~70%+ AUC score is the mathematically honest truth, not an artifact of data leakage.
+
+4. The Diagnostic Engine (LightGBM)
+The Problem: We had a massive class imbalance (850 patients vs. 95 healthy controls). Standard models would simply guess "Patient" every time to achieve high accuracy.
+
+The Architecture: We deployed a Light Gradient Boosting Machine (LightGBM). Tree-boosting models are mathematically immune to scale differences (so our raw ratios and scaled PCA components play nicely together). By using class_weight='balanced', we forced the algorithm to heavily penalize itself if it misclassified the minority "Healthy" class, ensuring high sensitivity.
