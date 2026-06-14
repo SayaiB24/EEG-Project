@@ -314,7 +314,7 @@ Make sure your `.env` file is placed in `AIAgent/` and contains a valid `GROQ_AP
 
 ### Core Engineering Developers
 
-* **Rochan Awasthi ** : rochansawasthi@gmail.com
+* **Rochan Awasthi** : rochansawasthi@gmail.com
 * **Sayali Bambal** : sayalibambal218@gmail.com
 * **Devansh Paltewar** : devanshpaltewar2005@gmail.com
 
