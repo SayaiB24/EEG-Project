@@ -171,7 +171,7 @@ mdurl==0.1.2
 mediapipe==0.10.14
 mistune==3.2.0
 mkl==2021.4.0
-mkl-service==2.7.2
+mkl-service==2.4.0
 ml_dtypes==0.5.1
 more-itertools==11.0.1
 mpmath==1.3.0
@@ -197,7 +197,7 @@ openapi-pydantic==0.5.1
 opencv-contrib-python==4.10.0.84
 opencv-python==4.10.0.84
 opencv-python-headless==4.10.0.84
-openenv==0.1.13
+openenv==0.3.1
 openenv-core==0.2.3
 opentelemetry-api==1.40.0
 opt_einsum==3.4.0
