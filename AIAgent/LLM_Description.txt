@@ -1,0 +1,91 @@
+## Large Language Model (LLM)
+
+The AI Mental Wellness Coach is powered by **Llama 3.3 70B Versatile**, accessed through the **Groq API** and integrated using the **LangChain** framework. The model serves as the core reasoning and conversational engine of the application, enabling natural, context-aware interactions with users.
+
+### Model Configuration
+
+```python
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    temperature=0.6,
+    max_tokens=2000
+)
+```
+
+### Configuration Details
+
+| Parameter   | Value                   |
+| ----------- | ----------------------- |
+| Model       | llama-3.3-70b-versatile |
+| Provider    | Groq                    |
+| Framework   | LangChain               |
+| Temperature | 0.6                     |
+| Max Tokens  | 2000                    |
+
+### Why This Model?
+
+Llama 3.3 70B Versatile is chosen for its strong conversational abilities, contextual understanding, and instruction-following capabilities. It can understand user concerns, analyze structured assessment results, and generate personalized responses while maintaining a supportive and empathetic tone.
+
+### Responsibilities of the LLM
+
+The model performs several key tasks within the system:
+
+* Interprets mental wellness assessment scores.
+* Analyzes user-provided contextual information.
+* Identifies patterns and concerns from conversation history.
+* Generates personalized coping strategies and wellness suggestions.
+* Maintains coherent multi-turn conversations.
+* Adapts responses based on the user's primary concern.
+* Provides structured plans, routines, and recommendations when requested.
+* Follows safety-focused instructions for sensitive mental health discussions.
+
+### Prompt Engineering
+
+A custom prompt is used to guide the model's behavior. The prompt includes:
+
+* Assessment results.
+* Severity levels of Depression, Anxiety, and Stress.
+* Attention score.
+* User background information collected through dynamic questioning.
+* Conversation history.
+* Safety guidelines.
+* Response generation rules based on user intent.
+
+This structured prompting approach helps the model generate relevant, personalized, and context-aware responses throughout the conversation.
+
+### Context Management
+
+To maintain conversational continuity, the system stores recent interactions and passes them to the model during each response generation cycle. This allows the AI coach to:
+
+* Remember previous user messages.
+* Avoid repetitive responses.
+* Build upon earlier discussions.
+* Provide more personalized guidance over time.
+
+### Safety and Ethical Considerations
+
+The model operates under predefined safety instructions. If a user expresses signs of self-harm, suicidal thoughts, or severe emotional distress, the system prioritizes safety by:
+
+* Responding with empathy and understanding.
+* Encouraging the user to contact trusted individuals.
+* Recommending professional mental health support.
+* Redirecting the conversation toward immediate help resources.
+
+### Response Generation Workflow
+
+1. User completes the mental wellness assessment.
+2. The system determines the primary concern.
+3. Dynamic questions gather additional context.
+4. Assessment data and conversation history are combined into a structured prompt.
+5. The LLM analyzes the provided information.
+6. A personalized response is generated and returned to the user.
+7. The conversation history is updated for future interactions.
+
+### Advantages
+
+* Human-like conversational experience.
+* Personalized and context-aware guidance.
+* Fast inference through Groq infrastructure.
+* Ability to handle follow-up questions naturally.
+* Adaptive responses based on user needs and concerns.
+* Support for multi-turn conversational wellness coaching.

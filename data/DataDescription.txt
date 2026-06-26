@@ -1,0 +1,148 @@
+EEG Psychiatric Disorders Dataset
+
+A psychiatric disorder is a mental illness diagnosed by a mental health professional that greatly disturbs your thinking, moods, and/or behavior and seriously increases your risk of disability, pain, death, or loss of freedom. In addition, your symptoms must be more severe than expected in response to an upsetting event, such as normal grief after the loss of a loved one. A large number of psychiatric disorders have been identified. Chances are that, whether or not you or someone close to you has been diagnosed with a psychiatric disorder, you know something about one or more of the following examples:
+
+Depression
+Personality disorders
+Anxiety disorders
+Schizophrenia
+Eating disorders
+Addictive behaviors
+Content
+EEG Dataset with approx 1k attributes for identifying psychiatric disorders.
+
+Total number of rows (samples): 945
+Total number of columns (attributes): 1149
+------------------------------
+Dataset Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 945 entries, 0 to 944
+Columns: 1149 entries, no. to COH.F.gamma.r.O1.s.O2
+dtypes: float64(1144), int64(1), object(4)
+memory usage: 8.3+ MB
+
+List of all columns in the dataset:
+['no.', 'sex', 'age', 'eeg.date', 'education', 'IQ', 'main.disorder', 'specific.disorder','AB.A.delta.a.FP1', 'AB.A.delta.b.FP2', 'AB.A.delta.c.F7', 'AB.A.delta.d.F3', 'AB.A.delta.e.Fz', 'AB.A.delta.f.F4', 'AB.A.delta.g.F8', 'AB.A.delta.h.T3', 'AB.A.delta.i.C3', 'AB.A.delta.j.Cz', 'AB.A.delta.k.C4', 'AB.A.delta.l.T4', 'AB.A.delta.m.T5', 'AB.A.delta.n.P3', 'AB.A.delta.o.Pz', 'AB.A.delta.p.P4',
+………..'COH.F.gamma.p.P4.r.O1', 'COH.F.gamma.p.P4.s.O2', 'COH.F.gamma.q.T6.r.O1', 'COH.F.gamma.q.T6.s.O2', 'COH.F.gamma.r.O1.s.O2']
+
+
+1. The Measurement Type (AB vs. COH)
+The very first letters tell you what is being measured:
+AB (Absolute Power): This measures the raw strength or amplitude of the brainwave at a specific spot. Think of it as how "loud" that part of the brain is talking.
+COH (Coherence): This measures how well two different parts of the brain are synchronized. Think of it as measuring whether two parts of the brain are communicating with each other. This is why the COH columns list two locations in their name.
+2. The Frequency Band (delta, gamma, etc.)
+Brainwaves happen at different speeds (frequencies), and different speeds correspond to different mental states. The words like delta or gamma (and the letters like A or F next to them) tell you which frequency is being measured:
+Delta: The slowest brainwaves, usually seen in deep sleep or unconsciousness.
+Theta: Slow waves related to daydreaming, sleep, or deep relaxation.
+Alpha: Relaxed, calm, awake states (like when your eyes are closed but you are awake).
+Beta: Normal waking consciousness, active thinking, and focus.
+Gamma: The fastest waves, associated with high-level concentration, problem-solving, and peak mental activity.
+3. The Electrode Location (FP1, T3, Pz, etc.)
+The letters and numbers at the end of the column name refer to the exact location of the sensor on the scalp using the international "10-20 system." The lowercase letters (like .a., .g.) are just alphabetical counters to keep the list organized.
+Here is what the capital letters mean:
+F (Frontal): Front of the head (decision making, problem-solving). FP stands for Frontal Pole (very front).
+T (Temporal): Side of the head (memory, emotion, hearing).
+C (Central): Top middle of the head (motor control).
+P (Parietal): Upper back of the head (sensory processing, spatial awareness).
+O (Occipital): Very back of the head (visual processing).
+Note: Odd numbers (like F3, T5) are on the left side of the brain. Even numbers (like F4, T6) are on the right side. A "z" (like Pz, Cz) means it is dead center in the middle of the head.
+Let's Translate a Few Examples:
+Example 1: AB.A.delta.a.FP1
+AB: Absolute power (strength).
+delta: Delta brainwave frequency (slow waves).
+FP1: Left Frontal Pole (front-left part of the brain).
+Translation: The strength of the slow delta brainwaves measured at the front-left of the patient's head.
+Example 2: COH.A.delta.g.F8.h.T3
+COH: Coherence (communication/sync).
+delta: Delta brainwave frequency.
+F8: Right Frontal lobe.
+T3: Left Temporal lobe.
+Translation: How synchronized the slow delta waves are between the right front of the brain and the left side of the brain.
+Because researchers measure 5 different frequency bands, across 19 different scalp locations, and check the coherence between every single combination of those locations, the number of columns quickly multiplies into the thousands!
+The Full Breakdown: COH.F.gamma.l.T4.o.Pz
+Part 1: COH = Coherence (The measurement type).
+Part 2: F = Frequency Group Code. This is simply a redundant letter used by the software that exported the data to group the frequencies together. A is delta, B is theta, C is alpha, D is beta, E is highbeta, and F is gamma.
+Part 3: gamma = The actual frequency band.
+Part 4: l = Channel Sorting Prefix. This is just an alphabetical counter attached to the electrode T4.
+Part 5: T4 = The first electrode location (Right Temporal).
+Part 6: o = Channel Sorting Prefix. Another alphabetical counter attached to Pz.
+Part 7: Pz = The second electrode location (Parietal Midline).
+
+
+=== DISORDER BREAKDOWN ===
+Total Unique Main Disorders: 7
+
+Main Disorder: Addictive disorder
+  -> Specific Disorders: Alcohol use disorder, Behavioral addiction disorder
+
+Main Disorder: Trauma and stress related disorder
+  -> Specific Disorders: Acute stress disorder, Posttraumatic stress disorder, Adjustment disorder
+
+Main Disorder: Mood disorder
+  -> Specific Disorders: Depressive disorder, Bipolar disorder
+
+Main Disorder: Healthy control
+  -> Specific Disorders: Healthy control
+
+Main Disorder: Obsessive compulsive disorder
+  -> Specific Disorders: Obsessive compulsitve disorder
+
+Main Disorder: Schizophrenia
+  -> Specific Disorders: Schizophrenia
+
+Main Disorder: Anxiety disorder
+  -> Specific Disorders: Panic disorder, Social anxiety disorder
+
+==============================
+
+
+=== EEG COLUMN PARSING ===
+Unique Measurement Types (3):
+['AB', 'COH', 'Unnamed: 122']
+
+Unique Frequency Bands (6):
+['alpha', 'beta', 'delta', 'gamma', 'highbeta', 'theta']
+
+Unique Electrode Channels (19):
+['C3', 'C4', 'Cz', 'F3', 'F4', 'F7', 'F8', 'FP1', 'FP2', 'Fz', 'O1', 'O2', 'P3', 'P4', 'Pz', 'T3', 'T4', 'T5', 'T6']
+
+Cleaned up 1 empty/unnamed columns.
+
+=== PATIENT COUNTS BY MAIN DISORDER ===
+main.disorder
+Mood disorder                         266
+Addictive disorder                    186
+Trauma and stress related disorder    128
+Schizophrenia                         117
+Anxiety disorder                      107
+Healthy control                        95
+Obsessive compulsive disorder          46
+Name: count, dtype: int64
+----------------------------------------
+=== AVERAGE AGE BY DISORDER ===
+main.disorder
+Addictive disorder                    29.6
+Anxiety disorder                      29.0
+Healthy control                       25.7
+Mood disorder                         30.9
+Obsessive compulsive disorder         28.5
+Schizophrenia                         31.7
+Trauma and stress related disorder    36.1
+Name: age, dtype: float64
+----------------------------------------
+=== SEX DISTRIBUTION ===
+sex
+M    601
+F    344
+Name: count, dtype: int64
+=== MISSING VALUE SUMMARY ===
+Number of columns with missing values: 2
+
+Columns with missing values and their counts (Top 20):
+education    15
+IQ           13
+dtype: int64
+
+Total rows with at least one missing value: 26 out of 945 (2.75%)
+----------------------------------------
+
