@@ -2,6 +2,8 @@
 
 A modern full-stack web application that combines a React/Vite frontend with an AI mental wellness coach powered by Flask, LangChain, and Groq. This platform unifies digital psychometric profiling with neuro-clinical machine learning foundations to create an objective, scalable mental health triage screening system.
 
+Checkout the project : https://eeg-project-459m.onrender.com/
+
 ## 📋 Table of Contents
 
 * [Overview & Core Features](https://www.google.com/search?q=%23-overview--core-features)
